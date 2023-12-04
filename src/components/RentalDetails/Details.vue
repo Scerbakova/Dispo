@@ -1,17 +1,20 @@
 <script setup>
 import InfoWithIcon from './InfoWithIcon.vue'
+import check from '../../assets/check-shield.svg'
+import calendar from '../../assets/calendar.svg'
+import person from '../../assets/person.svg'
 const fakeInfo = [
     {
         text: 'Request #779',
-        icon: '../../src/assets/check-shield.svg',
+        icon: check,
     },
     {
         text: 'Trip starts: 18 feb - 11:00',
-        icon: '../../src/assets/calendar.svg',
+        icon: calendar,
     },
     {
         text: '45 people',
-        icon: '../../src/assets/person.svg',
+        icon: person,
     },
 ]
 </script>

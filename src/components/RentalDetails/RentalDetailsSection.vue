@@ -1,5 +1,6 @@
 <script setup>
 import Details from './Details.vue'
+import copy from '../../assets/copy.svg'
 </script>
 
 <template>
@@ -17,7 +18,7 @@ import Details from './Details.vue'
                 <div
                     class="flex gap-2 items-center cursor-pointer md:mb-24 mb-10"
                 >
-                    <img width="20" src="../../assets/copy.svg" alt="" />
+                    <img width="20" :src="copy" alt="" />
                     <p class="text-xs text-stone-400">
                         Copy your unique trip link
                     </p>

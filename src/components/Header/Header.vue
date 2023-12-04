@@ -4,6 +4,8 @@ import Button from '../Reusable/Button.vue'
 import CurrencyAndLanguage from './CurrencyAndLanguage.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 import Logo from '../Reusable/Logo.vue'
+import currency from '../../assets/currency.svg'
+import lang from '../../assets/lang.svg'
 
 const windowWidth = ref(window.innerWidth)
 
@@ -51,8 +53,8 @@ const buttons = [
 ]
 
 const linksWithIcon = [
-    { label: 'Currency', image: '../../src/assets/currency.svg' },
-    { label: 'Language', image: '../../src/assets/lang.svg' },
+    { label: 'Currency', image: currency },
+    { label: 'Language', image: lang },
 ]
 const flexRowGap8 = 'flex flex-row gap-8 items-center'
 const onButtonClick = () => {}

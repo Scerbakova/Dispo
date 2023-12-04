@@ -2,6 +2,7 @@
 import Carousel from './Carousel.vue'
 import Button from '../Reusable/Button.vue'
 import Destination from './Destination.vue'
+import map from '../../assets/mapPicture.png'
 
 const destinations = [
     {
@@ -49,6 +50,6 @@ const onButtonClick = () => {}
             :depart="depart"
             :last="index === destinations.length - 1"
         />
-        <img src="../../assets/mapPicture.png" class="rounded-3xl mt-8" alt="map" />
+        <img :src="map" class="rounded-3xl mt-8" alt="map" />
     </div>
 </template>

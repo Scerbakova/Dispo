@@ -1,4 +1,6 @@
 <script setup>
+import place from '../../assets/place-marker.svg'
+import clock from '../../assets/clock.svg'
 const props = defineProps({
     placeTitle: {
         type: String,
@@ -26,7 +28,7 @@ const props = defineProps({
 <template>
     <div class="flex flex-row gap-2">
         <div class="relative overflow-hidden">
-            <img src="../../assets/place-marker.svg" width="20" alt="place" />
+            <img :src="place" width="20" alt="place" />
             <div :class="last ? 'none' : 'vertical-line'"></div>
         </div>
         <div class="flex flex-row gap-2 items-center w-1/2 mb-6">
@@ -47,7 +49,7 @@ const props = defineProps({
             </div>
             <div v-else class="w-1/2"></div>
             <div class="flex flex-row gap-1 items-center">
-                <img src="../../assets/clock.svg" width="20" alt="" />
+                <img :src="clock" width="20" alt="" />
                 <p>Depart: {{ depart }}</p>
             </div>
         </div>

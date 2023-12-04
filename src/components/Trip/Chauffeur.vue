@@ -1,5 +1,8 @@
 <script setup>
 import TripStage from './TripStage.vue'
+import chauffeur from '../../assets/chauffeur.png'
+import star from '../../assets/star.svg'
+import phone from '../../assets/phone-call.svg'
 const tripStages = [
     {
         isStepStarted: true,
@@ -42,12 +45,12 @@ const tripStages = [
                 <img
                     width="130"
                     class="rounded-xl"
-                    src="../../assets/chauffeur.png"
+                    :src="chauffeur"
                     alt=""
                 />
                 <p class="mt-2 font-bold">Adam Lopoto</p>
                 <div class="flex gap-3">
-                    <img width="20" src="../../assets/star.svg" alt="rate" />
+                    <img width="20" :src="star" alt="rate" />
                     <span class="pt-1">4.8</span>
                 </div>
             </div>
@@ -69,7 +72,7 @@ const tripStages = [
                 <img
                     width="60"
                     class="rounded-xl hover:opacity-80 cursor-pointer"
-                    src="../../assets/phone-call.svg"
+                    :src="phone"
                     alt=""
                 />
             </div>

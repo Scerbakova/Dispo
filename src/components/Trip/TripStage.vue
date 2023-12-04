@@ -1,5 +1,7 @@
 <script setup>
 import { computed } from 'vue'
+import blueCheck from '../../assets/checkmark-circle-blue.svg'
+import grayCheck from '../../assets/checkmark-circle-gray.svg'
 
 const props = defineProps({
     isStepStarted: Boolean,
@@ -10,8 +12,8 @@ const props = defineProps({
 
 const picture = computed(() => {
     return props.isStepStarted
-        ? '../../src/assets/checkmark-circle-blue.svg'
-        : '../../src/assets/checkmark-circle-gray.svg'
+        ? blueCheck
+        : grayCheck
 })
 const textColor = computed(() => {
 		return props.isStepStarted ? 'text-blue-950' : 'text-stone-600'
