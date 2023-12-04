@@ -3,32 +3,14 @@ import Carousel from './Carousel.vue'
 import Button from '../Reusable/Button.vue'
 import Destination from './Destination.vue'
 import map from '../../assets/mapPicture.png'
-
-const destinations = [
-    {
-        placeTitle: 'Riga international airport',
-        placeAddress: 'P133, Mārupe, LV-1053',
-        arrive: '',
-        depart: '16:45',
-    },
-    {
-        placeTitle: 'Lithuania airport',
-        placeAddress: 'Road name, LT223, Lithuania',
-        arrive: '17:20',
-        depart: '19:45',
-    },
-    {
-        placeTitle: 'Lithuania airport',
-        placeAddress: 'Road name, LT223, Lithuania',
-        arrive: '20:20',
-        depart: '21:45',
-    },
-]
+import { destinations } from '../../data/fakeData'
 
 const onButtonClick = () => {}
 </script>
 <template>
-    <div class="flex flex-col 2xl:w-7/12 xl:w-6/12 lg:w-5/12 w-10/12 m-6 lg:m-16 lg:ml-8 lg:ml-16 self-center">
+    <div
+        class="flex flex-col 2xl:w-7/12 xl:w-6/12 lg:w-5/12 w-10/12 m-6 lg:m-16 lg:ml-8 lg:ml-16 self-center"
+    >
         <div class="flex flex-row justify-center gap-8">
             <Button @click="onButtonClick" label="Trip details" isBlue />
             <Button

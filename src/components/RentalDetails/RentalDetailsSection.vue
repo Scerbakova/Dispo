@@ -4,31 +4,25 @@ import copy from '../../assets/copy.svg'
 </script>
 
 <template>
-
+    <div
+        class="w-10/12 md:h-min h-max bg-gradient-to-r from-blue-900 to-blue-950 rounded-3xl md:absolute overflow-hidden top-0 z-0"
+    >
         <div
-            class="w-10/12 md:h-min h-max bg-gradient-to-r from-blue-900 to-blue-950 rounded-3xl md:absolute overflow-hidden top-0 z-0"
+            class="flex flex-col text-center items-center text-white gap-8 pt-10"
         >
-            <div
-                class="flex flex-col text-center items-center text-white gap-8 pt-10"
-            >
-                <h2 class="text-xl md:text-3xl break-words">
-                    Your daily rental details
-                </h2>
-                <Details />
-                <div
-                    class="flex gap-2 items-center cursor-pointer md:mb-24 mb-10"
-                >
-                    <img width="20" :src="copy" alt="" />
-                    <p class="text-xs text-stone-400">
-                        Copy your unique trip link
-                    </p>
-                </div>
-            </div>
-            <div class="circle__big">
-                <div class="circle__small"></div>
+            <h2 class="text-xl md:text-3xl break-words">
+                Your daily rental details
+            </h2>
+            <Details />
+            <div class="flex gap-2 items-center cursor-pointer md:mb-24 mb-10">
+                <img width="20" :src="copy" alt="" />
+                <p class="text-xs text-stone-400">Copy your unique trip link</p>
             </div>
         </div>
-
+        <div class="circle__big">
+            <div class="circle__small"></div>
+        </div>
+    </div>
 </template>
 
 <style scoped>

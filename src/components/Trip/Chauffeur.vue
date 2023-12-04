@@ -3,43 +3,8 @@ import TripStage from './TripStage.vue'
 import chauffeur from '../../assets/chauffeur.png'
 import star from '../../assets/star.svg'
 import phone from '../../assets/phone-call.svg'
-import finland from '../../assets/flag-fi.svg'
-import france from '../../assets/flag-fr.svg'
-import germany from '../../assets/flag-gr.svg'
+import { tripStages, flags } from '../../data/fakeData'
 
-const tripStages = [
-    {
-        isStepStarted: true,
-        stepName: 'Waiting chauffeur',
-        date: '14.06.2022',
-        time: '12:32',
-    },
-    {
-        isStepStarted: true,
-        stepName: 'Chauffeur assigned',
-        date: '14.06.2022',
-        time: '12:32',
-    },
-    {
-        isStepStarted: true,
-        stepName: 'Started',
-        date: '14.06.2022',
-        time: '12:32',
-    },
-    {
-        isStepStarted: false,
-        stepName: 'Trip in progress',
-        date: '',
-        time: '',
-    },
-    {
-        isStepStarted: false,
-        stepName: 'Finished',
-        date: '',
-        time: '',
-    },
-]
-const flags = [finland, france, germany]
 const chauffeurInfoContainer =
     'w-full flex flex-col items-center lg:items-start'
 </script>

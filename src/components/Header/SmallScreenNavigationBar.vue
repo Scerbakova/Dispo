@@ -1,5 +1,5 @@
 <script setup>
-import NavigationLink from './NavigationLink.vue'
+import NavigationLink from '../Reusable/NavigationLink.vue'
 import Button from '../Reusable/Button.vue'
 const props = defineProps({
     links: {
