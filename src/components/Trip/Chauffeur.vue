@@ -6,7 +6,7 @@ import phone from '../../assets/phone-call.svg'
 import { tripStages, flags } from '../../data/fakeData'
 
 const chauffeurInfoContainer =
-    'w-full flex flex-col items-center lg:items-start'
+    'w-full flex flex-col items-center'
 </script>
 <template>
     <div class="self-center md:m-16 mr-0 w-10/12 lg:w-5/12">
