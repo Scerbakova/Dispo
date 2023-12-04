@@ -3,15 +3,15 @@ import InfoWithIcon from './InfoWithIcon.vue'
 const fakeInfo = [
     {
         text: 'Request #779',
-        icon: '../../assets/check-shield.svg',
+        icon: '../../src/assets/check-shield.svg',
     },
     {
         text: 'Trip starts: 18 feb - 11:00',
-        icon: '../../assets/calendar.svg',
+        icon: '../../src/assets/calendar.svg',
     },
     {
         text: '45 people',
-        icon: '../../assets/person.svg',
+        icon: '../../src/assets/person.svg',
     },
 ]
 </script>

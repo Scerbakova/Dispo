@@ -51,8 +51,8 @@ const buttons = [
 ]
 
 const linksWithIcon = [
-    { label: 'Currency', image: '../../assets/currency.svg' },
-    { label: 'Language', image: '../../assets/lang.svg' },
+    { label: 'Currency', image: '../../src/assets/currency.svg' },
+    { label: 'Language', image: '../../src/assets/lang.svg' },
 ]
 const flexRowGap8 = 'flex flex-row gap-8 items-center'
 const onButtonClick = () => {}
