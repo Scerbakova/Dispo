@@ -40,11 +40,13 @@ const tripStages = [
     },
 ]
 const flags = [finland, france, germany]
+const chauffeurInfoContainer =
+    'w-full flex flex-col items-center lg:items-start'
 </script>
 <template>
-    <div class="m-16 mr-0 w-5/12">
+    <div class="self-center md:m-16 mr-0 w-10/12 lg:w-5/12">
         <div class="flex">
-            <div>
+            <div :class="chauffeurInfoContainer">
                 <span class="text-blue-400 text-xs">Active</span>
                 <h3 class="text-xl font-bold mb-2">Chauffeur</h3>
                 <img width="130" class="rounded-xl" :src="chauffeur" alt="" />
@@ -55,7 +57,7 @@ const flags = [finland, france, germany]
                 </div>
             </div>
             <div class="border border-solid border-stone-300 mx-8"></div>
-            <div>
+            <div :class="chauffeurInfoContainer">
                 <div class="flex gap-3 mb-4">
                     <img
                         width="20"
@@ -81,14 +83,21 @@ const flags = [finland, france, germany]
                 />
             </div>
         </div>
-        <div class="mt-8">
-            <TripStage
-                v-for="{ isStepStarted, stepName, date, time } in tripStages"
-                :isStepStarted="isStepStarted"
-                :stepName="stepName"
-                :date="date"
-                :time="time"
-            />
+        <div class="mt-8 flex flex-col items-center">
+            <div>
+                <TripStage
+                    v-for="{
+                        isStepStarted,
+                        stepName,
+                        date,
+                        time,
+                    } in tripStages"
+                    :isStepStarted="isStepStarted"
+                    :stepName="stepName"
+                    :date="date"
+                    :time="time"
+                />
+            </div>
         </div>
     </div>
 </template>

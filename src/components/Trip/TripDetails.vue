@@ -28,7 +28,7 @@ const destinations = [
 const onButtonClick = () => {}
 </script>
 <template>
-    <div class="flex flex-col w-7/12 m-16 ml-8">
+    <div class="flex flex-col 2xl:w-7/12 xl:w-6/12 lg:w-5/12 w-10/12 m-6 lg:m-16 lg:ml-8 lg:ml-16 self-center">
         <div class="flex flex-row justify-center gap-8">
             <Button @click="onButtonClick" label="Trip details" isBlue />
             <Button

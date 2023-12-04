@@ -1,6 +1,7 @@
 <script setup>
 import place from '../../assets/place-marker.svg'
 import clock from '../../assets/clock.svg'
+
 const props = defineProps({
     placeTitle: {
         type: String,
@@ -26,7 +27,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="flex flex-row gap-2">
+    <div class="flex flex-row gap-2 text-xs md:text-sm lg:text-base">
         <div class="relative overflow-hidden">
             <img :src="place" width="20" alt="place" />
             <div :class="last ? 'none' : 'vertical-line'"></div>
@@ -40,16 +41,14 @@ const props = defineProps({
             </span>
         </div>
 
-        <div
-            class="flex flex-row gap-2 items-center w-1/2 mb-6 justify-end"
-        >
+        <div class="flex flex-row gap-2 items-center w-1/2 mb-6 justify-end">
             <div v-if="arrive" class="flex flex-row gap-1 items-center w-1/2">
-                <img src="../../assets/clock.svg" width="20" alt="" />
+                <img class="w-5 md:w-7" :src="clock" alt="" />
                 <p>Arrive: {{ arrive }}</p>
             </div>
             <div v-else class="w-1/2"></div>
             <div class="flex flex-row gap-1 items-center">
-                <img :src="clock" width="20" alt="" />
+                <img class="w-5 md:w-7" :src="clock" alt="" />
                 <p>Depart: {{ depart }}</p>
             </div>
         </div>

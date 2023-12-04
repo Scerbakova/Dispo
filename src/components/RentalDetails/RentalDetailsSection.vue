@@ -6,7 +6,7 @@ import copy from '../../assets/copy.svg'
 <template>
 
         <div
-            class="w-10/12 md:h-min h-max bg-gradient-to-r from-blue-900 to-blue-950 rounded-3xl absolute overflow-hidden top-0 z-0"
+            class="w-10/12 md:h-min h-max bg-gradient-to-r from-blue-900 to-blue-950 rounded-3xl md:absolute overflow-hidden top-0 z-0"
         >
             <div
                 class="flex flex-col text-center items-center text-white gap-8 pt-10"

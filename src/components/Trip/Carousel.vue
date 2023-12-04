@@ -107,7 +107,6 @@ onMounted(() => {
     flex-direction: row;
     align-items: center;
     overflow: hidden;
-    width: 85%;
     height: 80px;
 }
 
@@ -119,7 +118,7 @@ onMounted(() => {
 
 .carousel-item {
     flex: 0 0 auto;
-    padding: 10px 35px;
+    padding: 15px 25px;
     margin: 0 5px;
     display: flex;
     justify-content: center;
