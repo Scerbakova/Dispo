@@ -10,8 +10,8 @@ const props = defineProps({
 
 const picture = computed(() => {
     return props.isStepStarted
-        ? 'src/assets/checkmark-circle-blue.svg'
-        : 'src/assets/checkmark-circle-gray.svg'
+        ? '../../assets/checkmark-circle-blue.svg'
+        : '../../assets/checkmark-circle-gray.svg'
 })
 const textColor = computed(() => {
 		return props.isStepStarted ? 'text-blue-950' : 'text-stone-600'
