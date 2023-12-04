@@ -14,14 +14,6 @@ const handleResize = () => {
     windowWidth.value = window.innerWidth
 }
 
-onMounted(() => {
-    window.addEventListener('resize', handleResize)
-})
-
-onUnmounted(() => {
-    window.removeEventListener('resize', handleResize)
-})
-
 const links = [
     {
         label: 'Transport',
@@ -70,10 +62,12 @@ const closeNavBar = () => {
 }
 
 onMounted(() => {
+    window.addEventListener('resize', handleResize)
     document.body.addEventListener('click', closeNavBar)
 })
 
 onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
     document.body.removeEventListener('click', closeNavBar)
 })
 </script>
@@ -125,7 +119,11 @@ onUnmounted(() => {
                     />
                 </svg>
             </button>
-            <SmallScreenNavigationBar v-if="isNavBarOpen" :links="links" :buttons="buttons" />
+            <SmallScreenNavigationBar
+                v-if="isNavBarOpen"
+                :links="links"
+                :buttons="buttons"
+            />
         </div>
     </div>
 </template>

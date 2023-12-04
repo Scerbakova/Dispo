@@ -27,12 +27,12 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="flex flex-row gap-2 text-xs md:text-sm lg:text-base">
+    <div class="flex flex-row gap-2 text-sm lg:text-base">
         <div class="relative overflow-hidden">
             <img :src="place" width="20" alt="place" />
             <div :class="last ? 'none' : 'vertical-line'"></div>
         </div>
-        <div class="flex flex-row gap-2 items-center w-1/2 mb-6">
+        <div class="flex flex-col md:flex-row gap-2 items-center w-1/2 mb-6">
             <div class="flex gap-1 whitespace-nowrap">
                 {{ placeTitle }}
             </div>

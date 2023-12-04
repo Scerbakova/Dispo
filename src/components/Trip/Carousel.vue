@@ -1,16 +1,31 @@
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 
-const activeDay = ref(
-    new Date().toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'long',
-    })
-)
-
+const activeDay = ref(new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long' }))
 const daysToShow = ref([])
-
 const currentClick = ref('')
+const windowWidth = ref(window.innerWidth)
+
+const handleResize = () => {
+    windowWidth.value = window.innerWidth
+}
+
+const calculateDaysToAdd = () => {
+    if (
+        currentClick.value === 'prev' ||
+        windowWidth.value < 475 ||
+        (windowWidth.value >= 1024 && windowWidth.value <= 1140)
+    ) {
+        return 0
+    } else if (
+        (windowWidth.value >= 475 && windowWidth.value <= 635) ||
+        (windowWidth.value >= 1024 && windowWidth.value <= 1745)
+    ) {
+        return 1
+    } else {
+        return 2
+    }
+}
 
 const generateNextDays = () => {
     if (!activeDay.value) return
@@ -19,8 +34,7 @@ const generateNextDays = () => {
 
     for (let i = 0; i < 4; i++) {
         const nextDate = new Date(currentDate)
-        const additionalNumber = currentClick.value === 'prev' ? 0 : 2
-        nextDate.setDate(currentDate.getDate() + i - additionalNumber)
+        nextDate.setDate(currentDate.getDate() + i - calculateDaysToAdd())
         nextDays.push(
             nextDate.toLocaleDateString('en-US', {
                 day: 'numeric',
@@ -36,45 +50,47 @@ const prevSlide = () => {
     currentClick.value = 'prev'
     const prevDay = new Date(activeDay.value)
     prevDay.setDate(prevDay.getDate() - 1)
-    activeDay.value = prevDay.toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'long',
-    })
+    activeDay.value = prevDay.toLocaleDateString('en-US', { day: 'numeric', month: 'long' })
 }
 
 const nextSlide = () => {
     currentClick.value = 'next'
     const nextDay = new Date(activeDay.value)
     nextDay.setDate(nextDay.getDate() + 1)
-    activeDay.value = nextDay.toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'long',
-    })
+    activeDay.value = nextDay.toLocaleDateString('en-US', { day: 'numeric', month: 'long' })
 }
 
 watch(activeDay, () => {
-    console.log('activeDay changed', activeDay.value, daysToShow.value)
-    const leftCondition =
-        activeDay.value === daysToShow.value[1] && currentClick.value === 'prev'
+    const leftCondition = activeDay.value === daysToShow.value[1] && currentClick.value === 'prev'
     const rightCondition =
         activeDay.value !== daysToShow.value[3] && currentClick.value === 'next'
-    if (rightCondition || leftCondition) {
+
+    if (
+        ((rightCondition || leftCondition) &&
+            windowWidth.value >= 635 &&
+            windowWidth.value <= 1023) ||
+        ((rightCondition || leftCondition) && windowWidth.value >= 1745)
+    ) {
         return daysToShow.value
     } else {
         daysToShow.value = generateNextDays()
     }
 })
 
-// Initial generation of daysToShow
 onMounted(() => {
     currentClick.value = 'prev'
     daysToShow.value = generateNextDays()
+    window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
 })
 </script>
 
 <template>
-    <div class="flex flex-row mb-8">
-        <div class="arrow__wrapper">
+    <div class="flex flex-row mb-8 justify-center">
+        <div class="arrow__wrapper-left">
             <button @click="prevSlide" class="nav-btn">←</button>
         </div>
         <div class="carousel-container">
@@ -91,7 +107,7 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <div class="arrow__wrapper-shadowed">
+        <div class="arrow__wrapper-right">
             <button @click="nextSlide" class="nav-btn">→</button>
         </div>
     </div>
@@ -143,11 +159,15 @@ onMounted(() => {
 .nav-btn:hover {
     background-color: #d6d3d1;
 }
-.arrow__wrapper {
+.arrow__wrapper-right,
+.arrow__wrapper-left {
     padding: 30px;
 }
-.arrow__wrapper-shadowed {
+.arrow__wrapper-left:hover {
+    box-shadow: 10px 0px 10px -6px #00000030;
+}
+
+.arrow__wrapper-right:hover {
     box-shadow: -10px 0px 10px -6px #00000030;
-    padding: 30px;
 }
 </style>
