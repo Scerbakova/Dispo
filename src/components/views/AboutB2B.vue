@@ -1,0 +1,1 @@
+<template>AboutB2B Page</template>
