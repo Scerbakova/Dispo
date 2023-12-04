@@ -3,6 +3,10 @@ import TripStage from './TripStage.vue'
 import chauffeur from '../../assets/chauffeur.png'
 import star from '../../assets/star.svg'
 import phone from '../../assets/phone-call.svg'
+import finland from '../../assets/flag-fi.svg'
+import france from '../../assets/flag-fr.svg'
+import germany from '../../assets/flag-gr.svg'
+
 const tripStages = [
     {
         isStepStarted: true,
@@ -35,19 +39,15 @@ const tripStages = [
         time: '',
     },
 ]
+const flags = [finland, france, germany]
 </script>
 <template>
-    <div class="m-16 mr-0">
+    <div class="m-16 mr-0 w-5/12">
         <div class="flex">
             <div>
                 <span class="text-blue-400 text-xs">Active</span>
                 <h3 class="text-xl font-bold mb-2">Chauffeur</h3>
-                <img
-                    width="130"
-                    class="rounded-xl"
-                    :src="chauffeur"
-                    alt=""
-                />
+                <img width="130" class="rounded-xl" :src="chauffeur" alt="" />
                 <p class="mt-2 font-bold">Adam Lopoto</p>
                 <div class="flex gap-3">
                     <img width="20" :src="star" alt="rate" />
@@ -56,16 +56,20 @@ const tripStages = [
             </div>
             <div class="border border-solid border-stone-300 mx-8"></div>
             <div>
-                <div>
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                    <img src="" alt="" />
+                <div class="flex gap-3 mb-4">
+                    <img
+                        width="20"
+                        v-for="(flag, index) in flags"
+                        :src="flag"
+                        alt=""
+                        :key="index"
+                    />
                 </div>
-                <div class="flex flex-col gap-2 mb-4">
+                <div class="flex flex-col gap-1 mb-4">
                     <p class="text-sm text-stone-600">Name of carrier</p>
                     <p>Bambam SIA</p>
                 </div>
-                <div class="flex flex-col gap-2 mb-4">
+                <div class="flex flex-col gap-1 mb-4">
                     <p class="text-sm text-stone-600">National reg.nb.</p>
                     <p>"Miranda"</p>
                 </div>

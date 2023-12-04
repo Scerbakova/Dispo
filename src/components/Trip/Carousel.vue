@@ -16,9 +16,11 @@ const generateNextDays = () => {
     if (!activeDay.value) return
     const nextDays = []
     const currentDate = new Date(activeDay.value)
+
     for (let i = 0; i < 4; i++) {
         const nextDate = new Date(currentDate)
-        nextDate.setDate(currentDate.getDate() + i)
+        const additionalNumber = currentClick.value === 'prev' ? 0 : 2
+        nextDate.setDate(currentDate.getDate() + i - additionalNumber)
         nextDays.push(
             nextDate.toLocaleDateString('en-US', {
                 day: 'numeric',
@@ -26,6 +28,7 @@ const generateNextDays = () => {
             })
         )
     }
+
     return nextDays
 }
 
@@ -50,8 +53,9 @@ const nextSlide = () => {
 }
 
 watch(activeDay, () => {
+    console.log('activeDay changed', activeDay.value, daysToShow.value)
     const leftCondition =
-        activeDay.value === daysToShow.value[0] && currentClick.value === 'prev'
+        activeDay.value === daysToShow.value[1] && currentClick.value === 'prev'
     const rightCondition =
         activeDay.value !== daysToShow.value[3] && currentClick.value === 'next'
     if (rightCondition || leftCondition) {
@@ -63,6 +67,7 @@ watch(activeDay, () => {
 
 // Initial generation of daysToShow
 onMounted(() => {
+    currentClick.value = 'prev'
     daysToShow.value = generateNextDays()
 })
 </script>
@@ -108,7 +113,7 @@ onMounted(() => {
 
 .carousel {
     display: flex;
-    transition: transform 0.5s ease; /* Smooth transition effect */
+    transition: transform 0.5s ease;
     margin-top: 10px;
 }
 
@@ -119,13 +124,13 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ddd; /* Set your desired border */
+    border: 1px solid #ddd;
     border-radius: 24px;
 }
 
 .nav-btn {
-    background-color: #ddd;
-    border: 1px solid #ddd;
+    background-color: #e7e5e4;
+    border: 1px solid #e7e5e4;
     border-radius: 50%;
     cursor: pointer;
     height: 30px;
@@ -133,10 +138,11 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.2s ease;
 }
 
 .nav-btn:hover {
-    background-color: #ccc;
+    background-color: #d6d3d1;
 }
 .arrow__wrapper {
     padding: 30px;
